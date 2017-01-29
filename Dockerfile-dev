@@ -1,0 +1,7 @@
+FROM haskell:8.0.1
+
+WORKDIR /opt/server
+
+RUN cabal update
+
+ENTRYPOINT sleep infinity

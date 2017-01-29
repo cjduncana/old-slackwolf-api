@@ -1,6 +1,7 @@
 dist
 dist-*
 cabal-dev
+log
 *.o
 *.hi
 *.chi

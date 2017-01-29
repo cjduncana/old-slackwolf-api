@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker-compose -f docker-compose.dev.yml pull && \
+docker-compose -f docker-compose.dev.yml up -d && \
+docker exec -it `docker ps | grep slackwolf-api | awk '{print $1}'` bash
