@@ -1,7 +1,16 @@
 FROM haskell:8.0.1
 
-WORKDIR /opt/server
+# Create user
+RUN useradd -ms /bin/bash wolf
 
-RUN cabal update
+USER wolf
+WORKDIR /home/wolf
+
+# Install GHC
+RUN stack setup
+
+# Add and Install Application Code
+COPY . /home/wolf
+RUN stack build
 
 ENTRYPOINT sleep infinity
