@@ -3,6 +3,12 @@ FROM haskell:8.0.1
 # Create user
 RUN useradd -ms /bin/bash wolf
 
+# Copy code over
+COPY . /home/wolf
+
+# Change permissions
+RUN chown -R wolf:wolf /home/wolf/
+
 USER wolf
 WORKDIR /home/wolf
 
@@ -10,7 +16,6 @@ WORKDIR /home/wolf
 RUN stack setup
 
 # Add and Install Application Code
-COPY . /home/wolf
 RUN stack build
 
 ENTRYPOINT sleep infinity
