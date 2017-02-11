@@ -3,19 +3,11 @@ FROM haskell:8.0.1
 # Create user
 RUN useradd -ms /bin/bash wolf
 
-# Copy code over
-COPY . /home/wolf
-
 # Change permissions
 RUN chown -R wolf:wolf /home/wolf/
 
+# Change user
 USER wolf
 WORKDIR /home/wolf
-
-# Install GHC
-RUN stack setup
-
-# Add and Install Application Code
-RUN stack build
 
 ENTRYPOINT sleep infinity

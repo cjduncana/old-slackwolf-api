@@ -14,7 +14,19 @@ $ scripts/docker-init
 
 This will upgrade the Docker containers to their latest version, start all the
 containers, and log you into the Slackwolf API container.
-Once inside, an executable file will already be created ready for you to run.
+Once inside, you'll need to install the GHC.
+
+``` bash
+$ stack setup
+```
+
+Then compile the program using Stack.
+
+``` bash
+$ stack build
+```
+
+An executable file will already be created ready for you to run.
 
 ``` bash
 $ stack exec slackwolf-api-exe
@@ -27,17 +39,5 @@ then do the following:
 $ stack build
 $ stack exec slackwolf-api-exe
 ```
-
-### PS
-
-If you encounter the following error:
-
-``` bash
-You are not the owner of '/home/wolf/.stack-work/'.
-Aborting to protect file permissions.
-Retry with '--allow-different-user' to disable this precaution.
-```
-
-Delete your local `.stack-work/` directory, remove the Slackwolf API image, and then run the `docker-init` script again.
 
 [docker]: https://www.docker.com/

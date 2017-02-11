@@ -13,7 +13,7 @@ services:
     links:
       - 'mysql'
     volumes:
-      - './:/opt/server'
+      - './:/home/wolf'
     depends_on:
       - 'mysql'
     command: 'sleep infinity'
